@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FantasyBattleSimulator", "FantasyBattleSimulator\FantasyBattleSimulator.csproj", "{759A1F41-2C9E-434D-B11B-D02074C8C6C4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{759A1F41-2C9E-434D-B11B-D02074C8C6C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{759A1F41-2C9E-434D-B11B-D02074C8C6C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{759A1F41-2C9E-434D-B11B-D02074C8C6C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{759A1F41-2C9E-434D-B11B-D02074C8C6C4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5EE6DAE4-3302-4B2F-948B-754DFBFFBD8C}
+	EndGlobalSection
+EndGlobal

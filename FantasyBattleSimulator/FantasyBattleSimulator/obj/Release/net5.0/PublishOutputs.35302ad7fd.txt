@@ -1,0 +1,5 @@
+C:\workspace\Fantasy-Battle-Simulator\FantasyBattleSimulator\FantasyBattleSimulator\bin\Release\net5.0\publish\FantasyBattleSimulator.exe
+C:\workspace\Fantasy-Battle-Simulator\FantasyBattleSimulator\FantasyBattleSimulator\bin\Release\net5.0\publish\FantasyBattleSimulator.dll
+C:\workspace\Fantasy-Battle-Simulator\FantasyBattleSimulator\FantasyBattleSimulator\bin\Release\net5.0\publish\FantasyBattleSimulator.deps.json
+C:\workspace\Fantasy-Battle-Simulator\FantasyBattleSimulator\FantasyBattleSimulator\bin\Release\net5.0\publish\FantasyBattleSimulator.runtimeconfig.json
+C:\workspace\Fantasy-Battle-Simulator\FantasyBattleSimulator\FantasyBattleSimulator\bin\Release\net5.0\publish\FantasyBattleSimulator.pdb
