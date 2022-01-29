@@ -35,38 +35,46 @@ namespace FantasyBattleSimulator.Class
         public int Attack()
         {
             Random dice = new Random();
-            LastHit = dice.Next(0, this.PhysicalAttack);
-            LastHit += CriticalDamage(this.CriticalRate, LastHit);
+            this.LastHit = dice.Next(0, this.PhysicalAttack);
+            this.LastHit += CriticalDamage(this.CriticalRate, this.LastHit);
 
             Console.WriteLine($"{this.Name} avançou para o ataque.");
 
-            return LastHit;
+            return this.LastHit;
         }
 
         public int Magic()
         {
-            Random dice = new Random();
-            LastHit = dice.Next(0, this.MagicAttack);
-            LastHit += CriticalDamage(this.CriticalRate, LastHit);
+            if(this.ManaPoints < 20)
+            {
+                Console.WriteLine($"{this.Name} não possui mana suficiente para lançar uma magia!");
+                this.LastHit = -1;
+            }
+            else{
+                Random dice = new Random();
+                this.LastHit = dice.Next(0, this.MagicAttack);
+                this.LastHit += CriticalDamage(this.CriticalRate, LastHit);
+                this.ManaPoints -= 20;
 
-            Console.WriteLine($"{this.Name} lançou um ataque mágico.");
+                Console.WriteLine($"{this.Name} lançou um ataque mágico.");
+            }
 
-            return LastHit;
+            return this.LastHit;
         }
 
-        public string Defense()
-        {
-            Random dice = new Random();
+        //public string Defense()
+        //{
+        //    Random dice = new Random();
 
-            if(dice.Next(0,2) == 1)
-            {
-                return $"{this.Name} defendeu o ataque";
-            }
-            else
-            {
-                return $"{this.Name} não conseguiu defender o ataque";
-            }
-        }
+        //    if(dice.Next(0,2) == 1)
+        //    {
+        //        return $"{this.Name} defendeu o ataque";
+        //    }
+        //    else
+        //    {
+        //        return $"{this.Name} não conseguiu defender o ataque";
+        //    }
+        //}
 
         public int CriticalDamage(int criticalRate, int LastHit)
         {
@@ -113,9 +121,12 @@ namespace FantasyBattleSimulator.Class
 
         public void TakeMAtk(int damage)
         {
+            if (damage == -1)
+                return;
+
             damage -= this.MagicDefense;
 
-            if ((damage) <= 0)
+            if (damage <= 0)
             {
                 Console.WriteLine($"{this.Name} defendeu o ataque!");
             }
