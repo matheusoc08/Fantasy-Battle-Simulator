@@ -11,7 +11,7 @@ namespace FantasyBattleSimulator.Class
         public Mage (string name) : base(name)
         {
             this.ManaPoints += 100;
-            this.MagicAttack += 30;
+            this.MagicAttack += 100;
             this.MagicDefense += 10;
         }
     }

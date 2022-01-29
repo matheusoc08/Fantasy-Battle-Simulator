@@ -5,7 +5,6 @@ C:\workspace\Fantasy-Battle-Simulator\FantasyBattleSimulator\FantasyBattleSimula
 C:\workspace\Fantasy-Battle-Simulator\FantasyBattleSimulator\FantasyBattleSimulator\bin\Release\net5.0\FantasyBattleSimulator.dll
 C:\workspace\Fantasy-Battle-Simulator\FantasyBattleSimulator\FantasyBattleSimulator\bin\Release\net5.0\ref\FantasyBattleSimulator.dll
 C:\workspace\Fantasy-Battle-Simulator\FantasyBattleSimulator\FantasyBattleSimulator\bin\Release\net5.0\FantasyBattleSimulator.pdb
-C:\workspace\Fantasy-Battle-Simulator\FantasyBattleSimulator\FantasyBattleSimulator\obj\Release\net5.0\FantasyBattleSimulator.csproj.AssemblyReference.cache
 C:\workspace\Fantasy-Battle-Simulator\FantasyBattleSimulator\FantasyBattleSimulator\obj\Release\net5.0\FantasyBattleSimulator.GeneratedMSBuildEditorConfig.editorconfig
 C:\workspace\Fantasy-Battle-Simulator\FantasyBattleSimulator\FantasyBattleSimulator\obj\Release\net5.0\FantasyBattleSimulator.AssemblyInfoInputs.cache
 C:\workspace\Fantasy-Battle-Simulator\FantasyBattleSimulator\FantasyBattleSimulator\obj\Release\net5.0\FantasyBattleSimulator.AssemblyInfo.cs

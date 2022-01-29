@@ -8,71 +8,82 @@ namespace FantasyBattleSimulator.Class
 {
     class Round
     {
-        
-
-        /*
-        public void CalculateDamage(int challengerLastMove, int challengedLastMove)
+        public void Lutar(Character player1, Character player2)
         {
-            switch (challengerLastMove)
+            Menus menu = new Menus();
+
+            Console.WriteLine(player1);
+            Console.WriteLine(player2);
+
+            int roundCount = 0;
+
+            Console.WriteLine("=====Início da batalha!=====");
+            while (true)
             {
-                case 1:
-                    Attack();
+                Console.WriteLine("Pressione qualquer tecla para avançar o round");
+                Console.ReadLine();
+                Console.Clear();
+                roundCount++;
+
+                if (player1.HealthPoints <= 0)
+                {
+                    Console.WriteLine("=====Fim da batalha!=====");
+                    Console.WriteLine($"Nome: {player1.Name}\nHP: {0}\n");
+                    Console.WriteLine($"Nome: {player2.Name}\nHP: {player2.HealthPoints}\n");
+                    Console.WriteLine($"{player2.Name} venceu!");
                     break;
-                case 2:
-                    Magic();
+                }
+                else if (player2.HealthPoints <= 0)
+                {
+                    Console.WriteLine("=====Fim da batalha!=====");
+                    Console.WriteLine($"Nome: {player1.Name}\nHP: {player1.HealthPoints}\n");
+                    Console.WriteLine($"Nome: {player2.Name}\nHP: {0}\n");
+                    Console.WriteLine($"{player1.Name} venceu!");
                     break;
-                case 3:
-                    Defense();
-                    break;
+                }
+                else
+                {
+                    Console.WriteLine($"=============Turno {roundCount}==============");
+                    Console.WriteLine("---------STATUS PERSONAGEM---------");
+                    Console.WriteLine($"Nome: {player1.Name}\nHP: {player1.HealthPoints}\nMP: {player1.ManaPoints}\n");
+                    Console.WriteLine($"Nome: {player2.Name}\nHP: {player2.HealthPoints}\nMP: {player2.ManaPoints}\n");
+
+                    Console.WriteLine("-----------LOG DE ATAQUE-----------");
+
+                    Random dice = new Random();
+                    //P1 Ataque
+                    if (dice.Next(0, 2) == 1)
+                    {
+                        Console.WriteLine(player1.Attack());
+                        player2.TakePAtk(player1.LastHit);
+                    }
+                    else
+                    {
+                        Console.WriteLine(player1.Magic());
+                        player2.TakeMAtk(player1.LastHit);
+                    }
+
+                    //P2 Ataque
+                    if (dice.Next(0, 2) == 1)
+                    {
+                        Console.WriteLine(player2.Attack());
+                        player1.TakePAtk(player2.LastHit);
+                    }
+                    else
+                    {
+                        Console.WriteLine(player2.Magic());
+                        player1.TakeMAtk(player2.LastHit);
+                    }
+
+                    Console.WriteLine();
+
+                    Console.WriteLine("===========Fim do round============\n");
+                    Console.WriteLine();
+                }
             }
+            Console.ReadLine();
+            menu.MenuInicial();
         }
-        
-        public void Attack()
-        {
-            Random dice = new Random();
-            int lastHit = dice.Next(0, this.physicalAttack);
-            lastHit += CriticalDamage(this.criticalRate, lastHit);
 
-            if (lastHit == 0)
-            {
-                return $"{this.Name} errou o ataque...";
-            }
-            else
-            {
-                return $"{this.Name} ataca causando {lastHit} de dano";
-            }
-        }
-
-        public void Magic()
-        {
-            Random dice = new Random();
-            int lastHit = dice.Next(0, this.magicAttack);
-            lastHit += CriticalDamage(this.criticalRate, lastHit);
-            this.ManaPoints -= 20;
-
-            if (lastHit == 0)
-            {
-                return $"{this.Name} errou o ataque...";
-            }
-            else
-            {
-                return $"{this.Name} lançou um feitiço causando {lastHit} de dano";
-            }
-        }
-
-        public void Defense()
-        {
-            Random dice = new Random();
-
-            if (dice.Next(0, 2) == 1)
-            {
-                return $"{this.Name} defendeu o ataque";
-            }
-            else
-            {
-                return $"{this.Name} não conseguiu defender o ataque";
-            }
-        }
-        */
     }
 }

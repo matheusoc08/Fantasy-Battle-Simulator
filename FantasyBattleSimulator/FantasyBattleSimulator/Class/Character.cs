@@ -25,8 +25,8 @@ namespace FantasyBattleSimulator.Class
             this.Name = name;
             this.HealthPoints = 100;
             this.ManaPoints = 100;
-            this.PhysicalAttack = 10;
-            this.MagicAttack = 5;
+            this.PhysicalAttack = 100;
+            this.MagicAttack = 50;
             this.PhysicalDefense = 20;
             this.MagicDefense = 15;
             this.CriticalRate = 1;
@@ -109,15 +109,27 @@ namespace FantasyBattleSimulator.Class
 
         public void TakePAtk(int damage)
         {
-            this.HealthPoints -= (damage);
+            if((damage - this.PhysicalDefense) < 0)
+            {
+                Console.WriteLine($"{this.Name} defendeu o ataque!");
+            }
+            else
+            {
+                this.HealthPoints -= damage - this.PhysicalDefense;
+            }
         }
 
         public void TakeMAtk(int damage)
         {
-            this.HealthPoints -= (damage);
+            if ((damage - this.MagicDefense) < 0)
+            {
+                Console.WriteLine($"{this.Name} defendeu o ataque!");
+            }
+            else
+            {
+                this.HealthPoints -= damage - this.MagicDefense;
+            }
         }
-
-        public static ConsoleColor ForegroundColor { get; set; }
 
     }    
 }
