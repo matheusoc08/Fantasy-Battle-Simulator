@@ -13,3 +13,4 @@ C:\workspace\Fantasy-Battle-Simulator\FantasyBattleSimulator\FantasyBattleSimula
 C:\workspace\Fantasy-Battle-Simulator\FantasyBattleSimulator\FantasyBattleSimulator\obj\Release\net5.0\ref\FantasyBattleSimulator.dll
 C:\workspace\Fantasy-Battle-Simulator\FantasyBattleSimulator\FantasyBattleSimulator\obj\Release\net5.0\FantasyBattleSimulator.pdb
 C:\workspace\Fantasy-Battle-Simulator\FantasyBattleSimulator\FantasyBattleSimulator\obj\Release\net5.0\FantasyBattleSimulator.genruntimeconfig.cache
+C:\workspace\Fantasy-Battle-Simulator\FantasyBattleSimulator\FantasyBattleSimulator\obj\Release\net5.0\FantasyBattleSimulator.csproj.AssemblyReference.cache

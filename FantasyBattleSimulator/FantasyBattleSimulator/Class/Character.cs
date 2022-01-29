@@ -32,37 +32,26 @@ namespace FantasyBattleSimulator.Class
             this.CriticalRate = 1;
         }
 
-        public string Attack()
+        public int Attack()
         {
             Random dice = new Random();
             LastHit = dice.Next(0, this.PhysicalAttack);
             LastHit += CriticalDamage(this.CriticalRate, LastHit);
 
-            if (LastHit == 0)
-            {
-                return $"{this.Name} errou o ataque...";
-            }
-            else
-            {
-                return $"{this.Name} ataca causando {LastHit} de dano";
-            }
+            Console.WriteLine($"{this.Name} avançou para o ataque.");
+
+            return LastHit;
         }
 
-        public string Magic()
+        public int Magic()
         {
             Random dice = new Random();
             LastHit = dice.Next(0, this.MagicAttack);
             LastHit += CriticalDamage(this.CriticalRate, LastHit);
-            this.ManaPoints -= 20;
 
-            if (LastHit == 0)
-            {
-                return $"{this.Name} errou o ataque...";
-            }
-            else
-            {
-                return $"{this.Name} lançou um feitiço causando {LastHit} de dano";
-            }
+            Console.WriteLine($"{this.Name} lançou um ataque mágico.");
+
+            return LastHit;
         }
 
         public string Defense()
@@ -109,25 +98,31 @@ namespace FantasyBattleSimulator.Class
 
         public void TakePAtk(int damage)
         {
-            if((damage - this.PhysicalDefense) < 0)
+            damage -= this.PhysicalDefense;
+
+            if ((damage) <= 0)
             {
                 Console.WriteLine($"{this.Name} defendeu o ataque!");
             }
             else
             {
-                this.HealthPoints -= damage - this.PhysicalDefense;
+                Console.WriteLine($"{this.Name} recebeu {damage} de dano físico");
+                this.HealthPoints -= damage;
             }
         }
 
         public void TakeMAtk(int damage)
         {
-            if ((damage - this.MagicDefense) < 0)
+            damage -= this.MagicDefense;
+
+            if ((damage) <= 0)
             {
                 Console.WriteLine($"{this.Name} defendeu o ataque!");
             }
             else
             {
-                this.HealthPoints -= damage - this.MagicDefense;
+                Console.WriteLine($"{this.Name} recebeu {damage} de dano mágico");
+                this.HealthPoints -= damage;
             }
         }
 

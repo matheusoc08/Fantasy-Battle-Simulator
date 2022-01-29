@@ -22,7 +22,7 @@ namespace FantasyBattleSimulator.Class
             {
                 Console.WriteLine("Pressione qualquer tecla para avançar o round");
                 Console.ReadLine();
-                Console.Clear();
+                //Console.Clear();
                 roundCount++;
 
                 if (player1.HealthPoints <= 0)
@@ -50,30 +50,34 @@ namespace FantasyBattleSimulator.Class
 
                     Console.WriteLine("-----------LOG DE ATAQUE-----------");
 
-                    Random dice = new Random();
-                    //P1 Ataque
-                    if (dice.Next(0, 2) == 1)
-                    {
-                        Console.WriteLine(player1.Attack());
-                        player2.TakePAtk(player1.LastHit);
-                    }
-                    else
-                    {
-                        Console.WriteLine(player1.Magic());
-                        player2.TakeMAtk(player1.LastHit);
-                    }
+                    Attack(player1, player2);
+                    Console.WriteLine();
+                    Attack(player2, player1);
 
-                    //P2 Ataque
-                    if (dice.Next(0, 2) == 1)
-                    {
-                        Console.WriteLine(player2.Attack());
-                        player1.TakePAtk(player2.LastHit);
-                    }
-                    else
-                    {
-                        Console.WriteLine(player2.Magic());
-                        player1.TakeMAtk(player2.LastHit);
-                    }
+                    //Random dice = new Random();
+                    ////P1 Ataque
+                    //if (dice.Next(0, 2) == 1)
+                    //{
+                    //    Console.WriteLine(player1.Attack());
+                    //    player2.TakePAtk(player1.LastHit);
+                    //}
+                    //else
+                    //{
+                    //    Console.WriteLine(player1.Magic());
+                    //    player2.TakeMAtk(player1.LastHit);
+                    //}
+
+                    ////P2 Ataque
+                    //if (dice.Next(0, 2) == 1)
+                    //{
+                    //    Console.WriteLine(player2.Attack());
+                    //    player1.TakePAtk(player2.LastHit);
+                    //}
+                    //else
+                    //{
+                    //    Console.WriteLine(player2.Magic());
+                    //    player1.TakeMAtk(player2.LastHit);
+                    //}
 
                     Console.WriteLine();
 
@@ -83,6 +87,20 @@ namespace FantasyBattleSimulator.Class
             }
             Console.ReadLine();
             menu.MenuInicial();
+        }
+
+        public static void Attack(Character Attacker, Character Attacked)
+        {
+            Random dice = new Random();
+
+            if(dice.Next(0,2) == 1)
+            {
+                Attacked.TakePAtk(Attacker.Attack());
+            }
+            else
+            {
+                Attacked.TakeMAtk(Attacker.Magic());
+            }
         }
 
     }
