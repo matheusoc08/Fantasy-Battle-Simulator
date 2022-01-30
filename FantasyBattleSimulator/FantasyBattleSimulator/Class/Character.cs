@@ -76,7 +76,7 @@ namespace FantasyBattleSimulator.Class
         //    }
         //}
 
-        public int CriticalDamage(int criticalRate, int LastHit)
+        public int CriticalDamage(int criticalRate, int lastHit)
         {
             Random dice = new Random();
             double amplifier = 0.5;

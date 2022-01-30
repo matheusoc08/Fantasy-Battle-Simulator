@@ -51,9 +51,9 @@ namespace FantasyBattleSimulator.Class
                     Console.WriteLine("-----------LOG DE ATAQUE-----------");
                     Console.WriteLine("1- Ataque  2- Magia  Enter- Random\n");
 
-                    FightMove(player1, player2);
+                    ChosenMove(player1, player2);
                     Console.WriteLine();
-                    FightMove(player2, player1);
+                    ChosenMove(player2, player1);
 
                     Console.WriteLine();
 
@@ -65,7 +65,7 @@ namespace FantasyBattleSimulator.Class
             menu.Home();
         }
 
-        public static void FightMove(Character Attacker, Character Attacked)
+        public static void ChosenMove(Character Attacker, Character Attacked)
         {
             Console.Write($"Escolha o próximo movimento do {Attacker.Name}: ");
             var moveOption = Console.ReadLine();
