@@ -66,6 +66,26 @@ namespace FantasyBattleSimulator.Class
 
         public static void Attack(Character Attacker, Character Attacked)
         {
+            Console.WriteLine("1- Ataque  2- Magia  Enter- Random");
+            Console.WriteLine($"O que {Attacker.Name} fará?");
+            var moveOption = Console.ReadLine();
+            
+            switch (moveOption)
+            {
+                case "1":
+                    Attacked.TakePAtk(Attacker.Attack());
+                    break;
+                case "2":
+                    Attacked.TakeMAtk(Attacker.Magic());
+                    break;
+                default:
+                    RandomMove(Attacker, Attacked);
+                    break;
+            }
+        }
+
+        public static void RandomMove(Character Attacker, Character Attacked)
+        {
             Random dice = new Random();
 
             if(dice.Next(0,2) == 1)
