@@ -84,6 +84,7 @@ namespace FantasyBattleSimulator.Class
                         Console.WriteLine(assassino.ToString());
                         break;
                     default:
+                        Home();
                         throw new ArgumentOutOfRangeException();
                 }
 
