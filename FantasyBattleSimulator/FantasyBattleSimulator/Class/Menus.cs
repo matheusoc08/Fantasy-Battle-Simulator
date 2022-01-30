@@ -8,13 +8,8 @@ namespace FantasyBattleSimulator.Class
 {
     class Menus
     {
-        public void MenuInicial()
+        public void Home()
         {
-            Warrior guerreiro = new Warrior("Guerreiro");
-            Mage mago = new Mage("Mago");
-            Barbarian barbaro = new Barbarian("Bárbaro");
-            Assassin assassino = new Assassin("Assassino");
-
             //Menu inicial
             Console.WriteLine("Seleciona uma opção:");
             Console.WriteLine("1- Lutar");
@@ -27,10 +22,10 @@ namespace FantasyBattleSimulator.Class
             switch (opcaoJogador)
             {
                 case "1":
-                    SelecaoPersonagem();
+                    CharacterSelection();
                     break;
                 case "2":
-                    TelaPersonagens();
+                    CharacterScreen();
                     break;
                 case "3":
                     break;
@@ -40,66 +35,26 @@ namespace FantasyBattleSimulator.Class
             }
         }
 
-        public void SelecaoPersonagem()
+        public void CharacterSelection()
         {
             Console.WriteLine("Personagens disponíveis\n1- Guerreiro\n2- Mago\n3- Barbaro\n4- Assassino");
             Console.WriteLine();
             Console.Write("Selecione um dos personagens acima para lutar!\n\n");
 
-            Character player1 = null;
-            Character player2 = null;
-
             Console.Write("Desafiante: ");
-            var escolhaPersonagem1 = Console.ReadLine();
-            switch (escolhaPersonagem1)
-            {
-                case "1":
-                    Warrior guerreiro = new Warrior("Guerreiro");
-                    player1 = guerreiro;
-                    break;
-                case "2":
-                    Mage mago = new Mage("Mago");
-                    player1 = mago;
-                    break;
-                case "3":
-                    Barbarian barbaro = new Barbarian("Bárbaro");
-                    player1 = barbaro;
-                    break;
-                case "4":
-                    Assassin assassino = new Assassin("Assassino");
-                    player1 = assassino;
-                    break;
-            }
+            Character player1 = CharacterChoose(Console.ReadLine());
 
             Console.Write("Desafiado: ");
-            var escolhaPersonagem2 = Console.ReadLine();
-            switch (escolhaPersonagem2)
-            {
-                case "1":
-                    Warrior guerreiro = new Warrior("Guerreiro");
-                    player2 = guerreiro;
-                    break;
-                case "2":
-                    Mage mago = new Mage("Mago");
-                    player2 = mago;
-                    break;
-                case "3":
-                    Barbarian barbaro = new Barbarian("Bárbaro");
-                    player2 = barbaro;
-                    break;
-                case "4":
-                    Assassin assassino = new Assassin("Assassino");
-                    player2 = assassino;
-                    break;
-            }
+            Character player2 = CharacterChoose(Console.ReadLine());
+
             Console.Clear();
             Round batalha = new Round();
-            batalha.Lutar(player1, player2);
+            batalha.BattleStart(player1, player2);
         }
 
-        public void TelaPersonagens()
+        public void CharacterScreen()
         {
-            //Personagens selcionáveis
+            //Informações dos personagens selecionáveis
             Warrior guerreiro = new Warrior("Guerreiro");
             Mage mago = new Mage("Mago");
             Barbarian barbaro = new Barbarian("Bárbaro");
@@ -129,15 +84,40 @@ namespace FantasyBattleSimulator.Class
                         Console.WriteLine(assassino.ToString());
                         break;
                     default:
-                        MenuInicial();
                         throw new ArgumentOutOfRangeException();
                 }
 
                 Console.WriteLine("Pressione qualquer tecla para voltar a tela de personagens");
                 Console.ReadLine();
                 Console.Clear();
-
             }
+        }
+
+        public static Character CharacterChoose(string chosenCharacter)
+        {
+            Character character = null;
+
+            switch (chosenCharacter)
+            {
+                case "1":
+                    Warrior guerreiro = new Warrior("Guerreiro");
+                    character = guerreiro;
+                    break;
+                case "2":
+                    Mage mago = new Mage("Mago");
+                    character = mago;
+                    break;
+                case "3":
+                    Barbarian barbaro = new Barbarian("Bárbaro");
+                    character = barbaro;
+                    break;
+                case "4":
+                    Assassin assassino = new Assassin("Assassino");
+                    character = assassino;
+                    break;
+            }
+
+            return character;
         }
 
     }

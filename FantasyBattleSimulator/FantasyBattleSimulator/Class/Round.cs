@@ -8,7 +8,7 @@ namespace FantasyBattleSimulator.Class
 {
     class Round
     {
-        public void Lutar(Character player1, Character player2)
+        public void BattleStart(Character player1, Character player2)
         {
             Menus menu = new Menus();
 
@@ -49,10 +49,11 @@ namespace FantasyBattleSimulator.Class
                     Console.WriteLine($"Nome: {player2.Name}\nHP: {player2.HealthPoints}\nMP: {player2.ManaPoints}\n");
 
                     Console.WriteLine("-----------LOG DE ATAQUE-----------");
+                    Console.WriteLine("1- Ataque  2- Magia  Enter- Random\n");
 
-                    Attack(player1, player2);
+                    FightMove(player1, player2);
                     Console.WriteLine();
-                    Attack(player2, player1);
+                    FightMove(player2, player1);
 
                     Console.WriteLine();
 
@@ -61,13 +62,12 @@ namespace FantasyBattleSimulator.Class
                 }
             }
             Console.ReadLine();
-            menu.MenuInicial();
+            menu.Home();
         }
 
-        public static void Attack(Character Attacker, Character Attacked)
+        public static void FightMove(Character Attacker, Character Attacked)
         {
-            Console.WriteLine("1- Ataque  2- Magia  Enter- Random");
-            Console.WriteLine($"O que {Attacker.Name} fará?");
+            Console.Write($"Escolha o próximo movimento do {Attacker.Name}: ");
             var moveOption = Console.ReadLine();
             
             switch (moveOption)

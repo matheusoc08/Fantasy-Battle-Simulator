@@ -10,10 +10,7 @@ namespace FantasyBattleSimulator
         {
             Menus menu = new Menus();
 
-            menu.MenuInicial();
-
-        }
-
-        
+            menu.Home();
+        }        
     }
 }
