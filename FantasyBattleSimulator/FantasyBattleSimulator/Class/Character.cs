@@ -11,6 +11,7 @@ namespace FantasyBattleSimulator.Class
         //public int Id { get; set; }
         public string Name { get; set; }
         public int HealthPoints { get; set; }
+        public int Level { get; set; }
         public int ManaPoints { get; set; }
         public int PhysicalAttack { get; set; }
         public int MagicAttack { get; set; }
@@ -23,6 +24,7 @@ namespace FantasyBattleSimulator.Class
         {
             //this.Id = id;
             this.Name = name;
+            this.Level = 1;
             this.HealthPoints = 100;
             this.ManaPoints = 100;
             this.PhysicalAttack = 100;
