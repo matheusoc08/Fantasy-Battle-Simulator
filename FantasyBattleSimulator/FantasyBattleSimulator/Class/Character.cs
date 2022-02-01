@@ -25,7 +25,7 @@ namespace FantasyBattleSimulator.Class
             //this.Id = id;
             this.Name = name;
             this.Level = 1;
-            this.HealthPoints = 100;
+            this.HealthPoints = 500;
             this.ManaPoints = 100;
             this.PhysicalAttack = 100;
             this.MagicAttack = 50;

@@ -13,3 +13,11 @@ C:\workspace\Fantasy-Battle-Simulator\FantasyBattleSimulator\FantasyBattleSimula
 C:\workspace\Fantasy-Battle-Simulator\FantasyBattleSimulator\FantasyBattleSimulator\obj\Debug\net5.0\ref\FantasyBattleSimulator.dll
 C:\workspace\Fantasy-Battle-Simulator\FantasyBattleSimulator\FantasyBattleSimulator\obj\Debug\net5.0\FantasyBattleSimulator.pdb
 C:\workspace\Fantasy-Battle-Simulator\FantasyBattleSimulator\FantasyBattleSimulator\obj\Debug\net5.0\FantasyBattleSimulator.genruntimeconfig.cache
+C:\workspace\Fantasy-Battle-Simulator\FantasyBattleSimulator\FantasyBattleSimulator\obj\Debug\net5.0\FantasyBattleSimulator.csproj.AssemblyReference.cache
+C:\workspace\Fantasy-Battle-Simulator\FantasyBattleSimulator\FantasyBattleSimulator\bin\Debug\net5.0\System.Data.SqlClient.dll
+C:\workspace\Fantasy-Battle-Simulator\FantasyBattleSimulator\FantasyBattleSimulator\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+C:\workspace\Fantasy-Battle-Simulator\FantasyBattleSimulator\FantasyBattleSimulator\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+C:\workspace\Fantasy-Battle-Simulator\FantasyBattleSimulator\FantasyBattleSimulator\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+C:\workspace\Fantasy-Battle-Simulator\FantasyBattleSimulator\FantasyBattleSimulator\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\workspace\Fantasy-Battle-Simulator\FantasyBattleSimulator\FantasyBattleSimulator\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\workspace\Fantasy-Battle-Simulator\FantasyBattleSimulator\FantasyBattleSimulator\obj\Debug\net5.0\FantasyBattleSimulator.csproj.CopyComplete

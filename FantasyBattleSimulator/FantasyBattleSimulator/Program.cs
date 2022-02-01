@@ -9,8 +9,10 @@ namespace FantasyBattleSimulator
         static void Main(string[] args)
         {
             Menus menu = new Menus();
-
             menu.Home();
+
+            //DaoBase connection = new DaoBase();
+            //connection.Connect();
         }        
     }
 }

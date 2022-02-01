@@ -35,6 +35,55 @@ namespace FantasyBattleSimulator.Class
             }
         }
 
+        public void CharacterScreen()
+        {
+            //Informações dos personagens selecionáveis
+            Warrior guerreiro = new Warrior("Guerreiro");
+            Mage mago = new Mage("Mago");
+            Barbarian barbaro = new Barbarian("Bárbaro");
+            Assassin assassino = new Assassin("Assassino");
+
+            while (true)
+            {
+                Console.WriteLine("Personagens disponíveis\n1- Guerreiro\n2- Mago\n3- Barbaro\n4- Assassino");
+                Console.WriteLine();
+                Console.Write("Selecione um dos personagens acima para ver seus status ou X para voltar: \n\n");
+
+                DaoBase acesso = new DaoBase();
+
+                int escolhaPersonagem = int.Parse(Console.ReadLine());
+
+                acesso.CharacterInformation(escolhaPersonagem);
+
+                ////OLD
+                //var escolhaPersonagem = Console.ReadLine();
+                //Console.Clear();
+
+                //switch (escolhaPersonagem)
+                //{
+                //    case "1":
+                //        Console.WriteLine(guerreiro.ToString());
+                //        break;
+                //    case "2":
+                //        Console.WriteLine(mago.ToString());
+                //        break;
+                //    case "3":
+                //        Console.WriteLine(barbaro.ToString());
+                //        break;
+                //    case "4":
+                //        Console.WriteLine(assassino.ToString());
+                //        break;
+                //    default:
+                //        Home();
+                //        throw new ArgumentOutOfRangeException();
+                //}
+
+                Console.WriteLine("Pressione qualquer tecla para voltar a tela de personagens");
+                Console.ReadLine();
+                Console.Clear();
+            }
+        }
+
         public void CharacterSelection()
         {
             Console.WriteLine("Personagens disponíveis\n1- Guerreiro\n2- Mago\n3- Barbaro\n4- Assassino");
@@ -50,48 +99,6 @@ namespace FantasyBattleSimulator.Class
             Console.Clear();
             Round batalha = new Round();
             batalha.BattleStart(player1, player2);
-        }
-
-        public void CharacterScreen()
-        {
-            //Informações dos personagens selecionáveis
-            Warrior guerreiro = new Warrior("Guerreiro");
-            Mage mago = new Mage("Mago");
-            Barbarian barbaro = new Barbarian("Bárbaro");
-            Assassin assassino = new Assassin("Assassino");
-
-            while (true)
-            {
-                Console.WriteLine("Personagens disponíveis\n1- Guerreiro\n2- Mago\n3- Barbaro\n4- Assassino");
-                Console.WriteLine();
-                Console.Write("Selecione um dos personagens acima para ver seus status ou X para voltar: ");
-
-                var escolhaPersonagem = Console.ReadLine();
-                Console.Clear();
-
-                switch (escolhaPersonagem)
-                {
-                    case "1":
-                        Console.WriteLine(guerreiro.ToString());
-                        break;
-                    case "2":
-                        Console.WriteLine(mago.ToString());
-                        break;
-                    case "3":
-                        Console.WriteLine(barbaro.ToString());
-                        break;
-                    case "4":
-                        Console.WriteLine(assassino.ToString());
-                        break;
-                    default:
-                        Home();
-                        throw new ArgumentOutOfRangeException();
-                }
-
-                Console.WriteLine("Pressione qualquer tecla para voltar a tela de personagens");
-                Console.ReadLine();
-                Console.Clear();
-            }
         }
 
         public static Character CharacterChoose(string chosenCharacter)
