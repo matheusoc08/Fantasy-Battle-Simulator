@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace FantasyBattleSimulator.Class
 {
-    public abstract class Character
+    public /*abstract*/ class Character
     {
         //public int Id { get; set; }
         public string Name { get; set; }
         public int HealthPoints { get; set; }
-        public int Level { get; set; }
+        //public int Level { get; set; }
         public int ManaPoints { get; set; }
         public int PhysicalAttack { get; set; }
         public int MagicAttack { get; set; }
@@ -22,9 +23,8 @@ namespace FantasyBattleSimulator.Class
 
         public Character(string name)
         {
-            //this.Id = id;
             this.Name = name;
-            this.Level = 1;
+            //this.Level = 1;
             this.HealthPoints = 500;
             this.ManaPoints = 100;
             this.PhysicalAttack = 100;
@@ -32,6 +32,19 @@ namespace FantasyBattleSimulator.Class
             this.PhysicalDefense = 20;
             this.MagicDefense = 15;
             this.CriticalRate = 1;
+        }
+
+        public Character(string name, /*int lvl,*/ int hp, int mp, int pAtk, int mAtk, int pDef, int mDef, int critRate)
+        {
+            this.Name = name;
+            //this.Level = lvl;
+            this.HealthPoints = hp;
+            this.ManaPoints = mp;
+            this.PhysicalAttack = pAtk;
+            this.MagicAttack = mAtk;
+            this.PhysicalDefense = pDef;
+            this.MagicDefense = mDef;
+            this.CriticalRate = critRate;
         }
 
         public int Attack()

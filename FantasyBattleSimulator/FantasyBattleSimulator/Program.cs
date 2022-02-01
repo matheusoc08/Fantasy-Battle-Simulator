@@ -12,7 +12,7 @@ namespace FantasyBattleSimulator
             menu.Home();
 
             //DaoBase connection = new DaoBase();
-            //connection.Connect();
+            //Console.WriteLine(connection.Teste(1));
         }        
     }
 }

@@ -20,6 +20,7 @@ namespace FantasyBattleSimulator.Class
             Console.WriteLine("=====Início da batalha!=====");
             while (true)
             {
+                
                 Console.WriteLine("Pressione qualquer tecla para avançar o round");
                 Console.ReadLine();
                 Console.Clear();
@@ -52,6 +53,7 @@ namespace FantasyBattleSimulator.Class
                     Console.WriteLine("1- Ataque  2- Magia  Enter- Random\n");
 
                     ChosenMove(player1, player2);
+                    
                     Console.WriteLine();
                     ChosenMove(player2, player1);
 

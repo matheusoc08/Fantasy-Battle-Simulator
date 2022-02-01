@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,8 @@ namespace FantasyBattleSimulator.Class
 {
     class Menus
     {
+        readonly DaoBase acessoBase = new DaoBase();
+
         public void Home()
         {
             //Menu inicial
@@ -37,95 +40,48 @@ namespace FantasyBattleSimulator.Class
 
         public void CharacterScreen()
         {
-            //Informações dos personagens selecionáveis
-            Warrior guerreiro = new Warrior("Guerreiro");
-            Mage mago = new Mage("Mago");
-            Barbarian barbaro = new Barbarian("Bárbaro");
-            Assassin assassino = new Assassin("Assassino");
-
             while (true)
             {
-                Console.WriteLine("Personagens disponíveis\n1- Guerreiro\n2- Mago\n3- Barbaro\n4- Assassino");
+
+                Console.WriteLine(acessoBase.CharacterInformation());
                 Console.WriteLine();
-                Console.Write("Selecione um dos personagens acima para ver seus status ou X para voltar: \n\n");
+                Console.Write("Selecione um dos personagens acima para ver seus status ou X para voltar: ");
 
-                DaoBase acesso = new DaoBase();
+                var escolhaPersonagem = Console.ReadLine();
 
-                int escolhaPersonagem = int.Parse(Console.ReadLine());
+                if (escolhaPersonagem == "")
+                {
+                    Console.Clear();
+                    Home();
+                    break;
+                }
+                else
+                {
+                    var personagem = acessoBase.CharacterInformation(int.Parse(escolhaPersonagem));
+                    Console.WriteLine(personagem);
 
-                acesso.CharacterInformation(escolhaPersonagem);
-
-                ////OLD
-                //var escolhaPersonagem = Console.ReadLine();
-                //Console.Clear();
-
-                //switch (escolhaPersonagem)
-                //{
-                //    case "1":
-                //        Console.WriteLine(guerreiro.ToString());
-                //        break;
-                //    case "2":
-                //        Console.WriteLine(mago.ToString());
-                //        break;
-                //    case "3":
-                //        Console.WriteLine(barbaro.ToString());
-                //        break;
-                //    case "4":
-                //        Console.WriteLine(assassino.ToString());
-                //        break;
-                //    default:
-                //        Home();
-                //        throw new ArgumentOutOfRangeException();
-                //}
-
-                Console.WriteLine("Pressione qualquer tecla para voltar a tela de personagens");
-                Console.ReadLine();
-                Console.Clear();
+                    Console.WriteLine("Pressione qualquer tecla para voltar a tela de personagens");
+                    Console.ReadLine();
+                    Console.Clear();
+                }
             }
         }
 
         public void CharacterSelection()
         {
-            Console.WriteLine("Personagens disponíveis\n1- Guerreiro\n2- Mago\n3- Barbaro\n4- Assassino");
+            Console.WriteLine(acessoBase.CharacterInformation());
             Console.WriteLine();
             Console.Write("Selecione um dos personagens acima para lutar!\n\n");
 
             Console.Write("Desafiante: ");
-            Character player1 = CharacterChoose(Console.ReadLine());
+            Character player1 = acessoBase.CharacterInformation(int.Parse(Console.ReadLine()));
 
             Console.Write("Desafiado: ");
-            Character player2 = CharacterChoose(Console.ReadLine());
+            Character player2 = acessoBase.CharacterInformation(int.Parse(Console.ReadLine()));
 
             Console.Clear();
             Round batalha = new Round();
             batalha.BattleStart(player1, player2);
-        }
-
-        public static Character CharacterChoose(string chosenCharacter)
-        {
-            Character character = null;
-
-            switch (chosenCharacter)
-            {
-                case "1":
-                    Warrior guerreiro = new Warrior("Guerreiro");
-                    character = guerreiro;
-                    break;
-                case "2":
-                    Mage mago = new Mage("Mago");
-                    character = mago;
-                    break;
-                case "3":
-                    Barbarian barbaro = new Barbarian("Bárbaro");
-                    character = barbaro;
-                    break;
-                case "4":
-                    Assassin assassino = new Assassin("Assassino");
-                    character = assassino;
-                    break;
-            }
-
-            return character;
         }
 
     }
