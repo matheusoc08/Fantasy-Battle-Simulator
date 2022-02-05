@@ -46,9 +46,9 @@ namespace FantasyBattleSimulator.Class
                 Console.WriteLine(acessoBase.CharacterInformation());
                 Console.WriteLine();
                 Console.Write("Selecione um dos personagens acima para ver seus status ou X para voltar: ");
-
+                
                 var escolhaPersonagem = Console.ReadLine();
-
+                Console.Clear();
                 if (escolhaPersonagem == "")
                 {
                     Console.Clear();
@@ -71,7 +71,7 @@ namespace FantasyBattleSimulator.Class
         {
             Console.WriteLine(acessoBase.CharacterInformation());
             Console.WriteLine();
-            Console.Write("Selecione um dos personagens acima para lutar!\n\n");
+            Console.WriteLine("Selecione um dos personagens acima para lutar!\n");
 
             Console.Write("Desafiante: ");
             Character player1 = acessoBase.CharacterInformation(int.Parse(Console.ReadLine()));

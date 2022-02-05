@@ -47,6 +47,20 @@ namespace FantasyBattleSimulator.Class
             this.CriticalRate = critRate;
         }
 
+        public override string ToString()
+        {
+            string retorno = $"Nome: {this.Name}" + Environment.NewLine;
+            retorno += $"HP: {this.HealthPoints}" + Environment.NewLine;
+            retorno += $"MP: {this.ManaPoints}" + Environment.NewLine;
+            retorno += $"Ataque físico: {this.PhysicalAttack}" + Environment.NewLine;
+            retorno += $"Defesa física: {this.PhysicalDefense}" + Environment.NewLine;
+            retorno += $"Ataque mágico: {this.MagicAttack}" + Environment.NewLine;
+            retorno += $"Defesa mágica: {this.MagicDefense}" + Environment.NewLine;
+            retorno += $"Chance de crítico: {this.CriticalRate}%" + Environment.NewLine;
+
+            return retorno;
+        }
+
         public int Attack()
         {
             Random dice = new Random();
@@ -77,20 +91,6 @@ namespace FantasyBattleSimulator.Class
             return this.LastHit;
         }
 
-        //public string Defense()
-        //{
-        //    Random dice = new Random();
-
-        //    if(dice.Next(0,2) == 1)
-        //    {
-        //        return $"{this.Name} defendeu o ataque";
-        //    }
-        //    else
-        //    {
-        //        return $"{this.Name} não conseguiu defender o ataque";
-        //    }
-        //}
-
         public int CriticalDamage(int criticalRate, int lastHit)
         {
             Random dice = new Random();
@@ -103,20 +103,6 @@ namespace FantasyBattleSimulator.Class
                 Console.WriteLine($"{this.Name} fortaleceu o ataque! (Crítico)");
             }
             return Convert.ToInt32(criticalDamage);
-        }
-
-        public override string ToString()
-        {
-            string retorno = $"Nome: {this.Name}" + Environment.NewLine;
-            retorno += $"HP: {this.HealthPoints}" + Environment.NewLine;
-            retorno += $"MP: {this.ManaPoints}" + Environment.NewLine;
-            retorno += $"Ataque físico: {this.PhysicalAttack}" + Environment.NewLine;
-            retorno += $"Defesa física: {this.PhysicalDefense}" + Environment.NewLine;
-            retorno += $"Ataque mágico: {this.MagicAttack}" + Environment.NewLine;
-            retorno += $"Defesa mágica: {this.MagicDefense}" + Environment.NewLine;
-            retorno += $"Chance de crítico: {this.CriticalRate}%" + Environment.NewLine;
-
-            return retorno;
         }
 
         public void TakePAtk(int damage)
