@@ -9,7 +9,7 @@ namespace FantasyBattleSimulator.Class
 {
     public /*abstract*/ class Character
     {
-        //public int Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public int HealthPoints { get; set; }
         //public int Level { get; set; }
@@ -34,8 +34,9 @@ namespace FantasyBattleSimulator.Class
             this.CriticalRate = 1;
         }
 
-        public Character(string name, /*int lvl,*/ int hp, int mp, int pAtk, int mAtk, int pDef, int mDef, int critRate)
+        public Character(int id, string name, /*int lvl,*/ int hp, int mp, int pAtk, int mAtk, int pDef, int mDef, int critRate)
         {
+            this.Id = id;
             this.Name = name;
             //this.Level = lvl;
             this.HealthPoints = hp;
@@ -45,97 +46,6 @@ namespace FantasyBattleSimulator.Class
             this.PhysicalDefense = pDef;
             this.MagicDefense = mDef;
             this.CriticalRate = critRate;
-        }
-
-        public override string ToString()
-        {
-            string retorno = $"Nome: {this.Name}" + Environment.NewLine;
-            retorno += $"HP: {this.HealthPoints}" + Environment.NewLine;
-            retorno += $"MP: {this.ManaPoints}" + Environment.NewLine;
-            retorno += $"Ataque físico: {this.PhysicalAttack}" + Environment.NewLine;
-            retorno += $"Defesa física: {this.PhysicalDefense}" + Environment.NewLine;
-            retorno += $"Ataque mágico: {this.MagicAttack}" + Environment.NewLine;
-            retorno += $"Defesa mágica: {this.MagicDefense}" + Environment.NewLine;
-            retorno += $"Chance de crítico: {this.CriticalRate}%" + Environment.NewLine;
-
-            return retorno;
-        }
-
-        public int Attack()
-        {
-            Random dice = new Random();
-            this.LastHit = dice.Next(0, this.PhysicalAttack);
-            this.LastHit += CriticalDamage(this.CriticalRate, this.LastHit);
-
-            Console.WriteLine($"{this.Name} avançou para o ataque.");
-
-            return this.LastHit;
-        }
-
-        public int Magic()
-        {
-            if(this.ManaPoints < 20)
-            {
-                Console.WriteLine($"{this.Name} não possui mana suficiente para lançar uma magia!");
-                this.LastHit = -1;
-            }
-            else{
-                Random dice = new Random();
-                this.LastHit = dice.Next(0, this.MagicAttack);
-                this.LastHit += CriticalDamage(this.CriticalRate, LastHit);
-                this.ManaPoints -= 20;
-
-                Console.WriteLine($"{this.Name} lançou um ataque mágico.");
-            }
-
-            return this.LastHit;
-        }
-
-        public int CriticalDamage(int criticalRate, int lastHit)
-        {
-            Random dice = new Random();
-            double amplifier = 0.5;
-            double criticalDamage = 0;
-
-            if (dice.Next(0, 100) <= criticalRate)
-            {
-                criticalDamage = LastHit * amplifier;
-                Console.WriteLine($"{this.Name} fortaleceu o ataque! (Crítico)");
-            }
-            return Convert.ToInt32(criticalDamage);
-        }
-
-        public void TakePAtk(int damage)
-        {
-            damage -= this.PhysicalDefense;
-
-            if ((damage) <= 0)
-            {
-                Console.WriteLine($"{this.Name} defendeu o ataque!");
-            }
-            else
-            {
-                Console.WriteLine($"{this.Name} recebeu {damage} de dano físico");
-                this.HealthPoints -= damage;
-            }
-        }
-
-        public void TakeMAtk(int damage)
-        {
-            if (damage == -1)
-                return;
-
-            damage -= this.MagicDefense;
-
-            if (damage <= 0)
-            {
-                Console.WriteLine($"{this.Name} defendeu o ataque!");
-            }
-            else
-            {
-                Console.WriteLine($"{this.Name} recebeu {damage} de dano mágico");
-                this.HealthPoints -= damage;
-            }
         }
 
     }    

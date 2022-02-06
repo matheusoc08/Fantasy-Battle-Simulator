@@ -71,32 +71,37 @@ namespace FantasyBattleSimulator.Class
         {
             Console.Write($"Escolha o próximo movimento do {Attacker.Name}: ");
             var moveOption = Console.ReadLine();
-            
+
+            CharacterAction move = new CharacterAction();
+
+
             switch (moveOption)
             {
                 case "1":
-                    Attacked.TakePAtk(Attacker.Attack());
+                    move.PhysicalAttack(Attacker, Attacked);
                     break;
                 case "2":
-                    Attacked.TakeMAtk(Attacker.Magic());
+                    move.MagicAttack(Attacker, Attacked);
                     break;
                 default:
                     RandomMove(Attacker, Attacked);
                     break;
+
             }
         }
 
         public static void RandomMove(Character Attacker, Character Attacked)
         {
             Random dice = new Random();
+            CharacterAction move = new CharacterAction();
 
-            if(dice.Next(0,2) == 1)
+            if (dice.Next(0, 2) == 1)
             {
-                Attacked.TakePAtk(Attacker.Attack());
+                move.PhysicalAttack(Attacker, Attacked);
             }
             else
             {
-                Attacked.TakeMAtk(Attacker.Magic());
+                move.MagicAttack(Attacker, Attacked);
             }
         }
 

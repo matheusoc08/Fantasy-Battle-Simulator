@@ -96,8 +96,8 @@ namespace FantasyBattleSimulator
         public Character CharacterInformation(int charId) //Cria um objeto de Character de um personagem cadastrado no banco
         {
             string query =
-                $"SELECT CHAR_NAME, CHAR_HP, CHAR_MP,CHAR_PHYSICAL_ATTACK, " +
-                $"CHAR_MAGIC_ATTACK, CHAR_PHYSICAL_DEFENSE, CHAR_MAGIC_DEFENSE, CHAR_CRITICAL_RATE " +
+                $"SELECT CHAR_NAME, CHAR_HP, CHAR_MP,CHAR_PHYSICAL_ATTACK, CHAR_MAGIC_ATTACK, " +
+                $"CHAR_PHYSICAL_DEFENSE, CHAR_MAGIC_DEFENSE, CHAR_CRITICAL_RATE, CHAR_ID " +
                 $"FROM CHARACTERS " +
                 $"WHERE CHAR_ID = {charId}";
 
@@ -110,7 +110,7 @@ namespace FantasyBattleSimulator
 
                 while (reader.Read())
                 {
-                    character = new Character(reader.GetString(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4), reader.GetInt32(5), reader.GetInt32(6), reader.GetInt32(7));
+                    character = new Character(reader.GetInt32(8), reader.GetString(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4), reader.GetInt32(5), reader.GetInt32(6), reader.GetInt32(7));
                 }
 
                 conn.Close();
@@ -146,6 +146,38 @@ namespace FantasyBattleSimulator
 
             }
             catch (Exception e)
+            {
+                throw new Exception($"{e}");
+            }
+
+        }
+
+        public string CharacterMoveList(Character attacker)
+        {
+            int counter = 1;
+            int id = attacker.Id;
+            string retorno = null;
+            string query = $"SELECT A.ATK_NAME, A.ATK_TYPE" +
+                $"FROM ATTACKS A" +
+                $"JOIN MOVE_POOL MP ON MP.ATK_ID = A.ATK_ID" +
+                $"WHERE MP.CHAR_ID = {id}";
+
+            try
+            {
+                conn.Open();
+                SqlCommand command = new SqlCommand(query, conn);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    retorno += $"{counter} {reader.GetValue(0)} {reader.GetValue(1)}";
+                    counter++;
+                }
+
+                conn.Close();
+                return retorno;
+            }
+            catch(Exception e)
             {
                 throw new Exception($"{e}");
             }
