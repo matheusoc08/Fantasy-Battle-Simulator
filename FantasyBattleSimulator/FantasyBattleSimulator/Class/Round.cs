@@ -50,12 +50,16 @@ namespace FantasyBattleSimulator.Class
                     Console.WriteLine($"Nome: {player2.Name}\nHP: {player2.HealthPoints}\nMP: {player2.ManaPoints}\n");
 
                     Console.WriteLine("-----------LOG DE ATAQUE-----------");
-                    Console.WriteLine("1- Ataque  2- Magia  Enter- Random\n");
+                    //Console.WriteLine("1- Ataque  2- Magia  Enter- Random\n");
 
-                    ChosenMove(player1, player2);
-                    
+                    DaoBase c = new DaoBase();
+                    Console.WriteLine(c.CharacterMoveList(player1));
+                    //ChosenMove(player1, player2);
+
                     Console.WriteLine();
-                    ChosenMove(player2, player1);
+
+                    Console.WriteLine(c.CharacterMoveList(player2));
+                    //ChosenMove(player2, player1);
 
                     Console.WriteLine();
 

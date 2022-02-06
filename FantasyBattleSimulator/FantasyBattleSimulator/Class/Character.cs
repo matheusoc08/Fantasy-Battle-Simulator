@@ -48,5 +48,19 @@ namespace FantasyBattleSimulator.Class
             this.CriticalRate = critRate;
         }
 
+        public override string ToString()
+        {
+            string retorno = $"Nome: {this.Name}" + Environment.NewLine;
+            retorno += $"HP: {this.HealthPoints}" + Environment.NewLine;
+            retorno += $"MP: {this.ManaPoints}" + Environment.NewLine;
+            retorno += $"Ataque físico: {this.PhysicalAttack}" + Environment.NewLine;
+            retorno += $"Defesa física: {this.PhysicalDefense}" + Environment.NewLine;
+            retorno += $"Ataque mágico: {this.MagicAttack}" + Environment.NewLine;
+            retorno += $"Defesa mágica: {this.MagicDefense}" + Environment.NewLine;
+            retorno += $"Chance de crítico: {this.CriticalRate}%" + Environment.NewLine;
+
+            return retorno;
+        }
+
     }    
 }

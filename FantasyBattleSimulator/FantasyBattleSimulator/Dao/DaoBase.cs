@@ -154,12 +154,11 @@ namespace FantasyBattleSimulator
 
         public string CharacterMoveList(Character attacker)
         {
-            int counter = 1;
             int id = attacker.Id;
             string retorno = null;
-            string query = $"SELECT A.ATK_NAME, A.ATK_TYPE" +
-                $"FROM ATTACKS A" +
-                $"JOIN MOVE_POOL MP ON MP.ATK_ID = A.ATK_ID" +
+            string query = $"SELECT MP.MOVE_ATK_REFERENCE, A.ATK_NAME, A.ATK_TYPE " +
+                $"FROM ATTACKS A " +
+                $"JOIN MOVE_POOL MP ON MP.ATK_ID = A.ATK_ID " +
                 $"WHERE MP.CHAR_ID = {id}";
 
             try
@@ -170,8 +169,7 @@ namespace FantasyBattleSimulator
 
                 while (reader.Read())
                 {
-                    retorno += $"{counter} {reader.GetValue(0)} {reader.GetValue(1)}";
-                    counter++;
+                    retorno += $"{reader.GetInt32(0)}- {reader.GetValue(1)} | {reader.GetValue(2)}\n";
                 }
 
                 conn.Close();
@@ -183,6 +181,8 @@ namespace FantasyBattleSimulator
             }
 
         }
+    
+        
     }
 }
  
