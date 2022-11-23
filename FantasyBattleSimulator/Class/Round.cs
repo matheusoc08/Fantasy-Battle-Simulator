@@ -20,7 +20,7 @@ namespace FantasyBattleSimulator.Class
             Console.WriteLine("=====Início da batalha!=====");
             while (true)
             {
-                
+
                 Console.WriteLine("Pressione qualquer tecla para avançar o round");
                 Console.ReadLine();
                 Console.Clear();
